@@ -12,10 +12,10 @@
 \subsubsection{创建}
 Pandas 数据帧 \inlinetext{DataFrame} 可以使用各种输入创建, 如列表, 字典, 系列, \inlinetext{numpy.ndarray}, 数据帧 \inlinetext{DataFrame}.
 
-创建基本数据帧是空数据帧, 如\cref{code:create empty data frame} 所示%
+创建基本数据帧是空数据帧, 如\cref{code:create_empty_data_frame} 所示%
 %
 \begin{codebox}[
-  label = code:create empty data frame,
+  label = code:create_empty_data_frame,
   caption = 创建一个空的 \inlinetext{DataFrame}
 ]
 >>> import pandas
@@ -26,10 +26,10 @@ Columns: []
 Index: []
 \end{codebox}
 
-可以使用单个列表或列表列表创建数据帧 \inlinetext{DataFrame}, 如\cref{code:create data frame from single list} 所示.%
+可以使用单个列表或列表列表创建数据帧 \inlinetext{DataFrame}, 如\cref{code:create_data_frame_from_single_list} 所示.%
 %
 \begin{codebox}[
-  label = code:create data frame from single list,
+  label = code:create_data_frame_from_single_list,
   caption = 用单个列表创建 \inlinetext{DataFrame}
 ]
 >>> import pandas
@@ -44,14 +44,14 @@ Index: []
 4  5
 \end{codebox}
 
-我们可以用 \inlinetext{column} 参数为列指定名称, 如\cref{code:create data frame with columns} 所示.%
+我们可以用 \inlinetext{column} 参数为列指定名称, 如\cref{code:create_data_frame_with_columns_1} 所示.%
 %
 \begin{codebox}[
-  label = code:create data frame with columns,
+  label = code:create_data_frame_with_columns_1,
   caption = 用 \inlinetext{columns} 参数为列指定名称
 ]
 >>> import pandas
->>> data = [1, 2, 3, 4, 5] |\label{line:initialization}|
+>>> data = [1, 2, 3, 4, 5] |\label{line:initialization_of_data_1}|
 >>> data_frame = pandas.DataFrame(data, columns = ['number'])
 >>> print(data_frame)
    number
@@ -60,16 +60,16 @@ Index: []
 2       3
 3       4
 4       5
-\end{codebox}
-
-其实\cref{code:create data frame with columns} 中代码的 \inlinepython{data = [1,2,3,4,5]} 是特例, 完整的写法如\cref{code:create data frame with columns'} 所示. 请注意\cref{code:create data frame with columns} 中的第 \ref{line:initialization} 行与\cref{code:create data frame with columns'} 中的第 \ref{line:initialization of data 2} 行的区别.%
+\end{codebox}%
+%
+其实\cref{code:create_data_frame_with_columns_1} 中代码的 \inlinepython{data = [1,2,3,4,5]} 是特例, 完整的写法如\cref{code:create_data_frame_with_columns_2} 所示. 请注意\cref{code:create_data_frame_with_columns_1} 中的第 \ref{line:initialization_of_data_1} 行与\cref{code:create_data_frame_with_columns_2} 中的第 \ref{line:initialization_of_data_2} 行的区别, 两种写法是等价的.%
 %
 \begin{codebox}[
-  label = code:create data frame with columns',
+  label = code:create_data_frame_with_columns_2,
   caption = 用 \inlinetext{columns} 参数为列指定名称,
 ]
 >>> import pandas
->>> data = [[1], [2], [3], [4], [5]] |\label{line:initialization of data 2}|
+>>> data = [[1], [2], [3], [4], [5]] |\label{line:initialization_of_data_2}|
 >>> data_frame = pandas.DataFrame(data, columns = ['number'])
 >>> print(data_frame)
    number
@@ -80,4 +80,40 @@ Index: []
 4       5
 \end{codebox}
 
-\subsection[Panel]{\inlinetext{Panel}}
+如果要产生一个两列的 \inlinetext{DataFrame}, 如\cref{code:create_data_frame_with_two_columns} 所示.%
+%
+\begin{codebox}[
+  label = code:create_data_frame_with_two_columns,
+  caption = 产生两列的 \inlinetext{DataFrame},
+]
+>>> import pandas
+>>> data = [['Alex', 10], ['Bob', 12], ['Clarke', 13]]
+>>> data_frame = pandas.DataFrame(data, columns = ['Name', 'Age'])
+>>> print(data_frame)
+     Name  Age
+0    Alex   10
+1     Bob   12
+2  Clarke   13
+\end{codebox}%
+%
+值得注意的是, \inlinetext{columns} 参数的尺寸与 \inlinetext{data} 中的元素尺寸一致. 我们可以利用 \inlinetext{index} 参数为每一行数据设置标签, 如\cref{code:create_data_frame_with_row_labels} 所示.%
+%
+\begin{codebox}[
+  label = code:create_data_frame_with_row_labels,
+  caption = 为 \inlinetext{DataFrame} 设置行标签,
+]
+>>> import pandas
+>>> data = [['Alex', 10], ['Bob', 12], ['Clarke', 13]]
+>>> data_frame = pandas.DataFrame(data, columns = ['Name', 'Age'], index = [1, 2, 3])
+>>> print(data_frame)
+     Name  Age
+1    Alex   10
+2     Bob   12
+3  Clarke   13
+\end{codebox}%
+%
+值得注意的是, \inlinetext{index} 参数的尺寸与 \inlinetext{data} 的尺寸一致.
+
+除了 \inlinetext{list}, 我们也可以用 \inlinetext{dict} 创建 \inlinetext{DataFrame}.
+
+% \subsection[Panel]{\inlinetext{Panel}}
