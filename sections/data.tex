@@ -44,5 +44,40 @@ Index: []
 4  5
 \end{codebox}
 
+我们可以用 \inlinetext{column} 参数为列指定名称, 如\cref{code:create data frame with columns} 所示.%
+%
+\begin{codebox}[
+  label = code:create data frame with columns,
+  caption = 用 \inlinetext{columns} 参数为列指定名称
+]
+>>> import pandas
+>>> data = [1, 2, 3, 4, 5] |\label{line:initialization}|
+>>> data_frame = pandas.DataFrame(data, columns = ['number'])
+>>> print(data_frame)
+   number
+0       1
+1       2
+2       3
+3       4
+4       5
+\end{codebox}
+
+其实\cref{code:create data frame with columns} 中代码的 \inlinepython{data = [1,2,3,4,5]} 是特例, 完整的写法如\cref{code:create data frame with columns'} 所示. 请注意\cref{code:create data frame with columns} 中的第 \ref{line:initialization} 行与\cref{code:create data frame with columns'} 中的第 \ref{line:initialization of data 2} 行的区别.%
+%
+\begin{codebox}[
+  label = code:create data frame with columns',
+  caption = 用 \inlinetext{columns} 参数为列指定名称,
+]
+>>> import pandas
+>>> data = [[1], [2], [3], [4], [5]] |\label{line:initialization of data 2}|
+>>> data_frame = pandas.DataFrame(data, columns = ['number'])
+>>> print(data_frame)
+   number
+0       1
+1       2
+2       3
+3       4
+4       5
+\end{codebox}
 
 \subsection[Panel]{\inlinetext{Panel}}

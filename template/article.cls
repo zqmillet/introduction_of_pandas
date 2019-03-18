@@ -239,6 +239,7 @@
 \crefformat{Example}             {例 #2#1#3}
 \crefformat{tcb@cnt@codebox}     {代码 #2#1#3}
 \crefformat{tcb@cnt@codefilebox} {代码 #2#1#3}
+\crefformat{tcb@cnt@codebox}     {代码 #2#1#3}
 \makeatother
 
 % 设置行间距
@@ -321,7 +322,7 @@
   coltitle        = black,
   titlerule       = 0.4pt,
   titlerule style = black,
-  minted options  = {linenos, numbersep = 8pt, fontsize = \footnotesize, baselinestretch = 1.2, mathescape, breaklines = true, numbersep = 6.5pt},
+  minted options  = {linenos, numbersep = 8pt, fontsize = \footnotesize, baselinestretch = 1.2, mathescape, breaklines = true, numbersep = 6.5pt, escapeinside = ||},
   overlay         = {%
       \begin{tcbclipinterior}
       \draw[black] ([xshift = 6mm]frame.south west) -- ([xshift = 6mm]frame.north west);
