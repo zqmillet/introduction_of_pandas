@@ -10,18 +10,39 @@
 \end{itemize}
 
 \subsubsection{创建}
-Pandas 数据帧 \inlinetext{DataFrame} 可以使用各种输入创建, 如%
+Pandas 数据帧 \inlinetext{DataFrame} 可以使用各种输入创建, 如列表, 字典, 系列, \inlinetext{numpy.ndarray}, 数据帧 \inlinetext{DataFrame}.
+
+创建基本数据帧是空数据帧, 如\cref{code:create empty data frame} 所示%
 %
-\begin{itemize}
-    \item 列表;
-    \item 字典;
-    \item 系列;
-    \item \inlinetext{numpy.ndarray};
-    \item 数据帧 \inlinetext{DataFrame}.
-\end{itemize}
+\begin{codebox}[
+  label = code:create empty data frame,
+  caption = 创建一个空的 \inlinetext{DataFrame}
+]
+>>> import pandas
+>>> data_frame = pandas.DataFrame()
+>>> print(data_frame)
+Empty DataFrame
+Columns: []
+Index: []
+\end{codebox}
 
-创建基本数据帧是空数据帧, 如所示
-
+可以使用单个列表或列表列表创建数据帧 \inlinetext{DataFrame}, 如\cref{code:create data frame from single list} 所示.%
+%
+\begin{codebox}[
+  label = code:create data frame from single list,
+  caption = 用单个列表创建 \inlinetext{DataFrame}
+]
+>>> import pandas
+>>> data = [1,2,3,4,5]
+>>> data_frame = pandas.DataFrame(data)
+>>> print(data_frame)
+   0
+0  1
+1  2
+2  3
+3  4
+4  5
+\end{codebox}
 
 
 \subsection[Panel]{\inlinetext{Panel}}
