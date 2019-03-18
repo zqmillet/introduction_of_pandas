@@ -114,6 +114,24 @@ Index: []
 %
 值得注意的是, \inlinetext{index} 参数的尺寸与 \inlinetext{data} 的尺寸一致.
 
-除了 \inlinetext{list}, 我们也可以用 \inlinetext{dict} 创建 \inlinetext{DataFrame}.
+除了 \inlinetext{list}, 我们也可以用 \inlinetext{dict} 创建 \inlinetext{DataFrame}, 如\cref{code:create_data_frame_from_dict} 所示.%
+%
+\begin{codebox}[
+  label = code:create_data_frame_from_dict,
+  caption = 利用 \inlinetext{dict} 创建 \inlinetext{DataFrame},
+]
+>>> import pandas
+>>> data = {
+...     'Name': ['Tom', 'Jack', 'Steve', 'Ricky'],
+...     'Age':  [28,    34,     29,      42]
+... }
+>>> data_frame = pandas.DataFrame(data, index = ['rank1', 'rank2', 'rank3', 'rank4'])
+>>> print(data_frame)
+       Age   Name
+rank1   28    Tom
+rank2   34   Jack
+rank3   29  Steve
+rank4   42  Ricky
+\end{codebox}
 
 % \subsection[Panel]{\inlinetext{Panel}}
