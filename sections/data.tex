@@ -114,10 +114,10 @@ Index: []
 %
 值得注意的是, \inlinetext{index} 参数的尺寸与 \inlinetext{data} 的尺寸一致.
 
-除了 \inlinetext{list}, 我们也可以用 \inlinetext{dict} 创建 \inlinetext{DataFrame}, 如\cref{code:create_data_frame_from_dict} 所示.%
+除了 \inlinetext{list}, 我们也可以用 \inlinetext{dict} 创建 \inlinetext{DataFrame}, 如\cref{code:create_data_frame_from_dict_of_list} 所示.%
 %
 \begin{codebox}[
-  label = code:create_data_frame_from_dict,
+  label = code:create_data_frame_from_dict_of_list,
   caption = 利用 \inlinetext{dict} 创建 \inlinetext{DataFrame},
 ]
 >>> import pandas
@@ -132,6 +132,30 @@ rank1   28    Tom
 rank2   34   Jack
 rank3   29  Steve
 rank4   42  Ricky
-\end{codebox}
+\end{codebox}%
+%
+我们注意到, \cref{code:create_data_frame_from_dict_of_list} 中的 \inlinetext{data} 是 \inlinetext{dict(list)} 的结构, 其实, 我们也可以用 \inlinetext{list(dict)} 的结构来初始化一个 \inlinetext{DataFrame}, 如\cref{code:create_data_frame_from_list_of_dict} 所示
+\begin{codebox}[
+  label = code:create_data_frame_from_list_of_dict,
+  caption = 利用 \inlinetext{dict} 创建 \inlinetext{DataFrame},
+]
+>>> import pandas
+>>> data = [
+...     {'Name': 'Tom',   'Age': 28},
+...     {'Name': 'Jack',  'Age': 34},
+...     {'Name': 'Steve', 'Age': 29},
+...     {'Name': 'Ricky', 'Age': 42},
+... ]
+>>> data_frame = pandas.DataFrame(data, index = ['rank1', 'rank2', 'rank3', 'rank4'])
+>>> print(data_frame)
+       Age   Name
+rank1   28    Tom
+rank2   34   Jack
+rank3   29  Steve
+rank4   42  Ricky
+\end{codebox}%
+%
+由输出结果我们可以看到, \cref{code:create_data_frame_from_dict_of_list} 与\cref{code:create_data_frame_from_list_of_dict} 是等价的.
+
 
 % \subsection[Panel]{\inlinetext{Panel}}
