@@ -157,5 +157,24 @@ rank4   42  Ricky
 %
 由输出结果我们可以看到, \cref{code:create_data_frame_from_dict_of_list} 与\cref{code:create_data_frame_from_list_of_dict} 是等价的.
 
+\inlinetext{dict(pandas.Series)} 可以传递以形成一个 \inlinetext{DataFrame}, 所得到的索引是通过的所有 \inlinetext{pandas.Series} 索引的并集, 如\cref{code:create_data_frame_from_series} 所示.%
+%
+\begin{codebox}[
+  label = code:create_data_frame_from_series,
+  caption = 利用 \inlinetext{pandas.Series} 创建 \inlinetext{DataFrame},
+]
+>>>
+>>> data = {
+...     'one': pandas.Series([1, 2, 3],    index = ['a', 'b', 'c']),
+...     'two': pandas.Series([1, 2, 3, 4], index = ['a', 'b', 'c', 'd'])
+... }
+>>> data_frame = pandas.DataFrame(data)
+>>> print(data_frame)
+   one  two
+a  1.0    1
+b  2.0    2
+c  3.0    3
+d  NaN    4
+\end{codebox}
 
 % \subsection[Panel]{\inlinetext{Panel}}
